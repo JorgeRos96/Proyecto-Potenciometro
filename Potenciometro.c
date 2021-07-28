@@ -60,6 +60,8 @@ int ADC1_Init(void)
   {
     return -1;
   }
+	
+	return 0;
 
 }
 
