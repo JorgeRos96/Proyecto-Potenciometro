@@ -72,11 +72,16 @@ int ADC1_Init(void)
   */
 float lectura(void)
 	{
+				HAL_StatusTypeDef status;
+
 		uint32_t conversion = 0;
 		float voltaje = 0;
 		
 		/*Se inicia la conversión a traves del ADC*/
 		HAL_ADC_Start(&hadc1);
+		status = HAL_ADC_PollForConversion(&hadc1, 0);
+		while (status != HAL_OK)
+			status = HAL_ADC_PollForConversion(&hadc1, 0);
 		/*Se obtiene el valor a la salida del potenciometro*/
 		conversion = HAL_ADC_GetValue(&hadc1);
 		/*Se convierte el valor a la tensión equivalente*/
