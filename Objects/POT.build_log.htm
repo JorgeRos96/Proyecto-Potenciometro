@@ -21,7 +21,7 @@ Dialog DLL:      TCM.DLL V1.36.2.0
  
 <h2>Project:</h2>
 C:\Users\User\Documents\PFG\Proyectos finales\Potenciometro\POT.uvprojx
-Project File Date:  07/28/2021
+Project File Date:  08/18/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -32,6 +32,14 @@ compiling stm32f4xx_hal_msp.c...
 stm32f4xx_hal_msp.c(102): warning:  #177-D: variable "GPIO_InitStruct"  was declared but never referenced
   	 GPIO_InitTypeDef GPIO_InitStruct = {0};
 stm32f4xx_hal_msp.c: 1 warning, 0 errors
+compiling Watchdog.c...
+Watchdog.h(3): warning:  #1295-D: Deprecated declaration init_Watchdog - give arg types
+  int init_Watchdog ();
+Watchdog.h(4): warning:  #1295-D: Deprecated declaration reset_Watchdog - give arg types
+  void reset_Watchdog ();
+Watchdog.c(60): warning:  #1-D: last line of file ends without a newline
+  }
+Watchdog.c: 3 warnings, 0 errors
 compiling Delay.c...
 Delay.c(38): warning:  #177-D: variable "sConfigOC"  was declared but never referenced
   		TIM_OC_InitTypeDef sConfigOC = {0};
@@ -41,34 +49,37 @@ Delay.c(86): warning:  #1-D: last line of file ends without a newline
   	}
 Delay.c: 3 warnings, 0 errors
 compiling Potenciometro.c...
-Potenciometro.c(64): warning:  #940-D: missing return statement at end of non-void function "ADC1_Init" 
+Potenciometro.c(92): warning:  #1-D: last line of file ends without a newline
   }
-Potenciometro.c(85): warning:  #1-D: last line of file ends without a newline
-  }
-Potenciometro.c: 2 warnings, 0 errors
+Potenciometro.c: 1 warning, 0 errors
 compiling main.c...
 Delay.h(17): warning:  #1-D: last line of file ends without a newline
   void Delay_ms (uint16_t ms);
-main.c: 1 warning, 0 errors
+Watchdog.h(3): warning:  #1295-D: Deprecated declaration init_Watchdog - give arg types
+  int init_Watchdog ();
+Watchdog.h(4): warning:  #1295-D: Deprecated declaration reset_Watchdog - give arg types
+  void reset_Watchdog ();
+main.c: 3 warnings, 0 errors
 compiling USART_STM32F4xx.c...
 compiling stm32f4xx_hal.c...
 compiling stm32f4xx_hal_cortex.c...
-compiling stm32f4xx_hal_adc_ex.c...
 compiling stm32f4xx_hal_dma.c...
-compiling stm32f4xx_hal_dma_ex.c...
+compiling stm32f4xx_hal_adc_ex.c...
 compiling stm32f4xx_hal_adc.c...
-assembling startup_stm32f429xx.s...
+compiling stm32f4xx_hal_dma_ex.c...
 compiling stm32f4xx_hal_gpio.c...
-compiling system_stm32f4xx.c...
-compiling stm32f4xx_hal_pwr.c...
 compiling stm32f4xx_hal_pwr_ex.c...
-compiling stm32f4xx_hal_rcc_ex.c...
+compiling stm32f4xx_hal_pwr.c...
+assembling startup_stm32f429xx.s...
 compiling stm32f4xx_hal_rcc.c...
+compiling stm32f4xx_hal_rcc_ex.c...
 compiling stm32f4xx_hal_tim.c...
 compiling stm32f4xx_hal_tim_ex.c...
+compiling system_stm32f4xx.c...
+compiling stm32f4xx_hal_iwdg.c...
 linking...
-Program Size: Code=24764 RO-data=1188 RW-data=40 ZI-data=2176  
-".\Objects\POT.axf" - 0 Error(s), 7 Warning(s).
+Program Size: Code=25228 RO-data=1188 RW-data=40 ZI-data=2192  
+".\Objects\POT.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -91,6 +102,7 @@ Package Vendor: Keil
    * Component: Cortex Version: 1.7.9
    * Component: DMA Version: 1.7.9
    * Component: GPIO Version: 1.7.9
+   * Component: IWDG Version: 1.7.9
    * Component: PWR Version: 1.7.9
    * Component: RCC Version: 1.7.9
    * Component: TIM Version: 1.7.9
@@ -117,37 +129,40 @@ Package Vendor: Keil
       Source file:   CMSIS\Driver\USART_STM32F4xx.c
 
    * Component: Keil::Device:STM32Cube Framework:Classic:1.7.9
+      Source file:   MDK\Templates\Src\stm32f4xx_hal_msp.c
+      Source file:   MDK\Templates_LL\Src\main.c
+      Include file:  MDK\Templates_LL\Inc\main.h
+      Include file:  CMSIS\Driver\Config\RTE_Device.h
       Include file:  MDK\Templates\Inc\stm32f4xx_hal_conf.h
       Source file:   MDK\Templates\Src\stm32f4xx_it.c
       Include file:  MDK\Templates\Inc\main.h
       Source file:   MDK\Templates\Src\main.c
-      Include file:  MDK\Templates_LL\Inc\main.h
-      Source file:   MDK\Templates_LL\Src\main.c
-      Source file:   MDK\Templates\Src\stm32f4xx_hal_msp.c
-      Include file:  CMSIS\Driver\Config\RTE_Device.h
       Include file:  MDK\Templates\Inc\stm32f4xx_it.h
 
    * Component: Keil::Device:STM32Cube HAL:ADC:1.7.9
-      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_adc.c
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_adc_ex.c
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_adc.c
 
    * Component: Keil::Device:STM32Cube HAL:Common:1.7.9
-      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c
       Include file:  Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c
 
    * Component: Keil::Device:STM32Cube HAL:Cortex:1.7.9
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_cortex.c
 
    * Component: Keil::Device:STM32Cube HAL:DMA:1.7.9
-      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma.c
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma_ex.c
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_dma.c
 
    * Component: Keil::Device:STM32Cube HAL:GPIO:1.7.9
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_gpio.c
 
+   * Component: Keil::Device:STM32Cube HAL:IWDG:1.7.9
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_iwdg.c
+
    * Component: Keil::Device:STM32Cube HAL:PWR:1.7.9
-      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr.c
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr_ex.c
+      Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pwr.c
 
    * Component: Keil::Device:STM32Cube HAL:RCC:1.7.9
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc.c
@@ -158,12 +173,12 @@ Package Vendor: Keil
       Source file:   Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim_ex.c
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   MDK\Device\Source\ARM\STM32F42xxx_43xxx_OPT.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
-      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f429xx.s
+      Source file:   MDK\Device\Source\ARM\STM32F42xxx_43xxx_OPT.s
       Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f429xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:41
+Build Time Elapsed:  00:00:40
 </pre>
 </body>
 </html>
